@@ -1,4 +1,4 @@
-# node-flywaydb
+# logoran-flywaydb
 NodeJs wrapper for [flywaydb cli](https://flywaydb.org/documentation/commandline/)
 
 ## Motivation

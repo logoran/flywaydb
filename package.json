@@ -1,6 +1,6 @@
 {
-  "name": "node-flywaydb",
-  "version": "0.1.4",
+  "name": "logoran-flywaydb",
+  "version": "1.0.0",
   "description": "NodeJs wrapper for flywaydb cli",
   "main": "index.js",
   "bin": {
@@ -11,18 +11,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/markgardner/node-flywaydb.git"
+    "url": "git+https://github.com/logoran/flywaydb.git"
   },
   "keywords": [
     "flyway",
     "flywaydb"
   ],
-  "author": "Mark Gardner",
+  "author": ["Mark Gardner", "Leo"],
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/markgardner/node-flywaydb/issues"
+    "url": "https://github.com/logoran/flywaydb/issues"
   },
-  "homepage": "https://github.com/markgardner/node-flywaydb#readme",
+  "homepage": "https://github.com/logoran/flywaydb#readme",
   "dependencies": {
     "commander": "^2.9.0",
     "extract-zip": "^1.5.0",

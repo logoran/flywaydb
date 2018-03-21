@@ -1,10 +1,9 @@
 var env = process.env;
 
 module.exports = {
-	url: `jdbc:postgresql://${env.PGHOST}:${env.PGPORT}/${env.PGDATABASE}`,
-	schemas: 'public',
-	locations: 'filesystem:sql/migrations',
+	url: `jdbc:mysql://${env.PGHOST}:${env.PGPORT}/${env.PGDATABASE}`,
+	locations: 'filesystem:models/migrations',
 	user: env.PGUSER,
 	password: env.PGPASSWORD,
-	sqlMigrationSuffix: '.pgsql'
+	sqlMigrationSuffixes: '.sql'
 };
