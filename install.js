@@ -68,17 +68,17 @@ request(`${repoBaseUrl}/maven-metadata.xml`, function (err, response) {
 
     function makeResolverFile(jlibDir) {
         return new Promise(function(res, rej) {
-            let argsPrefix = [],
+            let // argsPrefix = [],
                 flywayDir = path.join(jlibDir, currentSource.folder);
 
             if(fs.existsSync(flywayDir)) {
-                if(os.platform() === 'linux') {
-                    argsPrefix = ['-Djava.security.egd=file:/dev/../dev/urandom'];
-                }
+                // if(os.platform() === 'linux') {
+                //     argsPrefix = ['-Djava.security.egd=file:/dev/../dev/urandom'];
+                // }
 
                 fs.writeFileSync(path.join(jlibDir, 'resolver.js'), `module.exports = ${JSON.stringify({
                     bin: path.join(flywayDir, 'flyway'),
-                    argsPrefix: argsPrefix
+                    // argsPrefix: argsPrefix
                 }, null, 2)};`);
 
                 res();

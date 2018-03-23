@@ -47,7 +47,7 @@ function exeCommand(cmd) {
         configArgs = Object.keys(config),
         args;
 
-    args = resolver.argsPrefix
+    args = (resolver.argsPrefix ? resolver.argsPrefix : [])
         .concat([cmd._name])
         .concat(
             configArgs
