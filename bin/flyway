@@ -45,7 +45,8 @@ function exeCommand(cmd) {
     let cwd = process.cwd(),
         config = require(path.resolve(program.configfile)),
         configArgs = Object.keys(config),
-        args;
+        args,
+        child;
 
     args = (resolver.argsPrefix ? resolver.argsPrefix : [])
         .concat([cmd._name])
@@ -53,11 +54,15 @@ function exeCommand(cmd) {
             configArgs
             .filter(x => !!config[x])
             .map(x => `-${x}=${config[x].replace(/\s/g, '\\ ')}`)
-        )
+        );
 
-    spawn(resolver.bin, args, {
+    child = spawn(resolver.bin, args, {
         cwd: cwd,
         stdio: 'inherit',
         windowsVerbatimArguments: true // Super Weird, https://github.com/nodejs/node/issues/5060
+    });
+
+    child.on('close', code => {
+        process.exit(code);
     });
 }
