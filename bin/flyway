@@ -43,19 +43,17 @@ function makeCommand(name, desc) {
 
 function exeCommand(cmd) {
     let cwd = process.cwd(),
-        config = require(path.resolve(program.configfile)), 
+        config = require(path.resolve(program.configfile)),
         configArgs = Object.keys(config),
-        relativeLibDirs = resolver.libDirs.map(x => path.relative(cwd, x)).join(path.delimiter),
         args;
 
     args = resolver.argsPrefix
-        .concat(['-cp', relativeLibDirs, 'org.flywaydb.commandline.Main'])
         .concat([cmd._name])
         .concat(
             configArgs
-                .filter(x => !!config[x])
-                .map(x => `-${x}=${config[x].replace(/\s/g, '\\ ')}`)
-        );
+            .filter(x => !!config[x])
+            .map(x => `-${x}=${config[x].replace(/\s/g, '\\ ')}`)
+        )
 
     spawn(resolver.bin, args, {
         cwd: cwd,
