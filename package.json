@@ -2,7 +2,7 @@
   "name": "logoran-flywaydb",
   "version": "1.0.3",
   "description": "NodeJs wrapper for flywaydb cli",
-  "main": "index.js",
+  "main": "lib",
   "bin": {
     "flyway": "./bin/flyway"
   },
