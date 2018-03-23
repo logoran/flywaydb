@@ -43,5 +43,9 @@ function makeCommand(name, desc) {
 }
 
 function exeCommand(cmd) {
-    operate(cmd._name, program.configfile);
+    operate(cmd._name, program.configfile).then(function(){
+        process.exit(0);
+    }).catch(function(code){
+        process.exit(code);
+    });
 }
